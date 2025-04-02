@@ -1,0 +1,135 @@
+{
+  "authors": [
+    {
+      "id": 1,
+      "name": "J.K. Rowling",
+      "bio": "British author, best known for the Harry Potter series.",
+      "birthDate": "1965-07-31",
+      "nationality": "British",
+      "books": [
+        { "id": 1, "name": "Harry Potter and the Philosopher's Stone" },
+        { "id": 2, "name": "Harry Potter and the Chamber of Secrets" },
+        { "id": 3, "name": "Harry Potter and the Prisoner of Azkaban" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "George R.R. Martin",
+      "bio": "American novelist and short story writer, known for A Song of Ice and Fire.",
+      "birthDate": "1948-09-20",
+      "nationality": "American",
+      "books": [
+        { "id": 4, "name": "A Game of Thrones" },
+        { "id": 5, "name": "A Clash of Kings" },
+        { "id": 6, "name": "A Storm of Swords" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "J.R.R. Tolkien",
+      "bio": "English writer, poet, and philologist, author of The Lord of the Rings.",
+      "birthDate": "1892-01-03",
+      "nationality": "British",
+      "books": [
+        { "id": 7, "name": "The Fellowship of the Ring" },
+        { "id": 8, "name": "The Two Towers" },
+        { "id": 9, "name": "The Return of the King" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Agatha Christie",
+      "bio": "English writer known for her detective novels, especially those featuring Hercule Poirot.",
+      "birthDate": "1890-09-15",
+      "nationality": "British",
+      "books": [
+        { "id": 10, "name": "Murder on the Orient Express" },
+        { "id": 11, "name": "And Then There Were None" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Stephen King",
+      "bio": "American author of horror, supernatural fiction, suspense, and fantasy novels.",
+      "birthDate": "1947-09-21",
+      "nationality": "American",
+      "books": [
+        { "id": 12, "name": "The Shining" },
+        { "id": 13, "name": "It" },
+        { "id": 14, "name": "Misery" }
+      ]
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": { "id": 1, "name": "J.K. Rowling" }
+    },
+    {
+      "id": 2,
+      "title": "Harry Potter and the Chamber of Secrets",
+      "author": { "id": 1, "name": "J.K. Rowling" }
+    },
+    {
+      "id": 3,
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "author": { "id": 1, "name": "J.K. Rowling" }
+    },
+    {
+      "id": 4,
+      "title": "A Game of Thrones",
+      "author": { "id": 2, "name": "George R.R. Martin" }
+    },
+    {
+      "id": 5,
+      "title": "A Clash of Kings",
+      "author": { "id": 2, "name": "George R.R. Martin" }
+    },
+    {
+      "id": 6,
+      "title": "A Storm of Swords",
+      "author": { "id": 2, "name": "George R.R. Martin" }
+    },
+    {
+      "id": 7,
+      "title": "The Fellowship of the Ring",
+      "author": { "id": 3, "name": "J.R.R. Tolkien" }
+    },
+    {
+      "id": 8,
+      "title": "The Two Towers",
+      "author": { "id": 3, "name": "J.R.R. Tolkien" }
+    },
+    {
+      "id": 9,
+      "title": "The Return of the King",
+      "author": { "id": 3, "name": "J.R.R. Tolkien" }
+    },
+    {
+      "id": 10,
+      "title": "Murder on the Orient Express",
+      "author": { "id": 4, "name": "Agatha Christie" }
+    },
+    {
+      "id": 11,
+      "title": "And Then There Were None",
+      "author": { "id": 4, "name": "Agatha Christie" }
+    },
+    {
+      "id": 12,
+      "title": "The Shining",
+      "author": { "id": 5, "name": "Stephen King" }
+    },
+    {
+      "id": 13,
+      "title": "It",
+      "author": { "id": 5, "name": "Stephen King" }
+    },
+    {
+      "id": 14,
+      "title": "Misery",
+      "author": { "id": 5, "name": "Stephen King" }
+    }
+  ]
+}

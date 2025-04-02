@@ -1,0 +1,38 @@
+{
+  "name": "sample-nextjs-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "api": "json-server --watch api/db.json --port 3001",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.0.1",
+    "@mui/material": "^7.0.1",
+    "axios": "^1.8.4",
+    "json-server": "^1.0.0-beta.3",
+    "next": "^15.2.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "@types/node": "22.13.17",
+    "@types/react": "^19.0.12",
+    "eslint": "^9.23.0",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
+    "typescript-eslint": "^8.29.0"
+  }
+}
