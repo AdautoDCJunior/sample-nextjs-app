@@ -1,15 +1,15 @@
 'use client';
 
-import BasicTable, { Column, Row } from '../../../components/BasicTable';
+import BasicTable, { IColumn, IRow } from '../../../components/BasicTable';
 import { BookProvider, useBookContext } from '../../../contexts/BookContext';
 import React, { useEffect, useState } from 'react';
 import { BookService } from '../../../services/BookService';
 
 const PageContent = () => {
   const { books, setBooks } = useBookContext();
-  const [bookRows, setBookRows] = useState<Row[]>([]);
+  const [bookRows, setBookRows] = useState<IRow[]>([]);
 
-  const bookColumns: Column[] = [
+  const bookColumns: IColumn[] = [
     { id: 1, name: 'id',align: 'left' },
     { id: 2, name: 'title', align: 'left' },
   ];
