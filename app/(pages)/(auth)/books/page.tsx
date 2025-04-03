@@ -1,16 +1,61 @@
 'use client';
 
+import { Add, FilterAltOff } from '@mui/icons-material';
 import BasicTable, { IColumn, IRow } from '../../../components/BasicTable';
 import { BookProvider, useBookContext } from '../../../contexts/BookContext';
 import React, { useEffect, useState } from 'react';
 import { BookService } from '../../../services/BookService';
+import PageTitle from '../../../components/PageTitle';
 
-const PageContent = () => {
+const handleButtonClick = () => {
+  alert('Abrindo Filtro');
+};
+
+const handleIcon1Click = () => {
+  alert('Limpando Filtro');
+};
+
+const handleIcon2Click = () => {
+  alert('Criando Livro');
+};
+
+const arrayButtons: Array<{
+  variant: 'icon' | 'text' | 'icon-text';
+  icon?: React.ReactNode;
+  text?: string;
+  onClick: () => void;
+  color: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
+  size: 'small' | 'medium' | 'large';
+}> = [
+  {
+    variant: 'icon',
+    icon: <FilterAltOff />,
+    onClick: (handleIcon1Click),
+    color: 'primary',
+    size: 'small',
+  },
+  {
+    variant: 'icon',
+    icon: <Add />,
+    onClick: (handleIcon2Click),
+    color: 'primary',
+    size: 'small',
+  },
+  {
+    variant: 'text',
+    text: 'Filtros',
+    onClick: (handleButtonClick),
+    color: 'primary',
+    size: 'large',
+  },
+];
+
+const PageContent = ({ buttons }: { buttons: typeof arrayButtons }) => {
   const { books, setBooks } = useBookContext();
   const [bookRows, setBookRows] = useState<IRow[]>([]);
 
   const bookColumns: IColumn[] = [
-    { id: 1, name: 'id',align: 'left' },
+    { id: 1, name: 'id', align: 'left' },
     { id: 2, name: 'title', align: 'left' },
   ];
 
@@ -36,7 +81,10 @@ const PageContent = () => {
 
   return (
     <div>
-      <h1>Lista de Livros</h1>
+      <PageTitle 
+        buttons={buttons} 
+        title="Livros"
+      />
       <BasicTable columns={bookColumns} rows={bookRows} />
     </div>
   );
@@ -45,7 +93,7 @@ const PageContent = () => {
 export default function Page() {
   return (
     <BookProvider>
-      <PageContent />
+      <PageContent buttons={arrayButtons} />
     </BookProvider>
   );
 }

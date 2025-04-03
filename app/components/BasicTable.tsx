@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IconButton } from '@mui/material';
+import BasicButton from './BasicButton'; 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -14,9 +14,12 @@ interface IBasicTable {
 }
 
 export interface IAction {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
+  text?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onClick: (params?: any) => void;
+  color?: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
+  size?: 'small' | 'medium' | 'large';
 }
 
 export interface IColumn {
@@ -24,7 +27,6 @@ export interface IColumn {
   name: string;
   align?: 'left' | 'right' | 'center';
 }
-
 
 export interface IRow {
   id: string | number;
@@ -75,14 +77,23 @@ export default function BasicTable(props: IBasicTable) {
               })}
               {
                 actions && actions.length > 0 && (
-                  <TableCell align="center">
+                  <TableCell align="center" sx={{
+                    display: 'flex',
+                    position: 'relative',
+                    flexDirection: 'row',
+                    gap: '0.5rem',
+                  }}>
                     {actions.map((action, index) => (
-                      <IconButton
+                      <BasicButton
+                        color={action.color}
+                        icon={action.icon}
                         key={index}
                         onClick={() => action.onClick(row)}
-                      >
-                        {action.icon}
-                      </IconButton>
+                        size={action.size}
+                        text={action.text}
+                        variant={action.icon && action.text ? 'icon-text' : 
+                          action.icon ? 'icon' : 'text'}
+                      />
                     ))}
                   </TableCell>
                 )
