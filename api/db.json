@@ -7,9 +7,18 @@
       "birthDate": "1965-07-31",
       "nationality": "British",
       "books": [
-        { "id": 1, "name": "Harry Potter and the Philosopher's Stone" },
-        { "id": 2, "name": "Harry Potter and the Chamber of Secrets" },
-        { "id": 3, "name": "Harry Potter and the Prisoner of Azkaban" }
+        {
+          "id": 1,
+          "name": "Harry Potter and the Philosopher's Stone"
+        },
+        {
+          "id": 2,
+          "name": "Harry Potter and the Chamber of Secrets"
+        },
+        {
+          "id": 3,
+          "name": "Harry Potter and the Prisoner of Azkaban"
+        }
       ]
     },
     {
@@ -19,9 +28,18 @@
       "birthDate": "1948-09-20",
       "nationality": "American",
       "books": [
-        { "id": 4, "name": "A Game of Thrones" },
-        { "id": 5, "name": "A Clash of Kings" },
-        { "id": 6, "name": "A Storm of Swords" }
+        {
+          "id": 4,
+          "name": "A Game of Thrones"
+        },
+        {
+          "id": 5,
+          "name": "A Clash of Kings"
+        },
+        {
+          "id": 6,
+          "name": "A Storm of Swords"
+        }
       ]
     },
     {
@@ -31,9 +49,18 @@
       "birthDate": "1892-01-03",
       "nationality": "British",
       "books": [
-        { "id": 7, "name": "The Fellowship of the Ring" },
-        { "id": 8, "name": "The Two Towers" },
-        { "id": 9, "name": "The Return of the King" }
+        {
+          "id": 7,
+          "name": "The Fellowship of the Ring"
+        },
+        {
+          "id": 8,
+          "name": "The Two Towers"
+        },
+        {
+          "id": 9,
+          "name": "The Return of the King"
+        }
       ]
     },
     {
@@ -43,8 +70,14 @@
       "birthDate": "1890-09-15",
       "nationality": "British",
       "books": [
-        { "id": 10, "name": "Murder on the Orient Express" },
-        { "id": 11, "name": "And Then There Were None" }
+        {
+          "id": 10,
+          "name": "Murder on the Orient Express"
+        },
+        {
+          "id": 11,
+          "name": "And Then There Were None"
+        }
       ]
     },
     {
@@ -54,82 +87,309 @@
       "birthDate": "1947-09-21",
       "nationality": "American",
       "books": [
-        { "id": 12, "name": "The Shining" },
-        { "id": 13, "name": "It" },
-        { "id": 14, "name": "Misery" }
+        {
+          "id": 12,
+          "name": "The Shining"
+        },
+        {
+          "id": 13,
+          "name": "It"
+        },
+        {
+          "id": 14,
+          "name": "Misery"
+        }
       ]
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Fantasy"
+    },
+    {
+      "id": 2,
+      "name": "Adventure"
+    },
+    {
+      "id": 3,
+      "name": "Horror"
+    },
+    {
+      "id": 4,
+      "name": "Mystery"
+    },
+    {
+      "id": 5,
+      "name": "Thriller"
     }
   ],
   "books": [
     {
       "id": 1,
       "title": "Harry Potter and the Philosopher's Stone",
-      "author": { "id": 1, "name": "J.K. Rowling" }
+      "description": "Harry Potter, a young boy who discovers he is a wizard, begins his magical education at Hogwarts School of Witchcraft and Wizardry. Along the way, he uncovers the truth about his parents' death and faces the dark wizard Voldemort for the first time.",
+      "author": {
+        "id": 1,
+        "name": "J.K. Rowling"
+      },
+      "categories": [
+        {
+          "id": 1,
+          "name": "Fantasy"
+        },
+        {
+          "id": 2,
+          "name": "Adventure"
+        }
+      ]
     },
     {
       "id": 2,
       "title": "Harry Potter and the Chamber of Secrets",
-      "author": { "id": 1, "name": "J.K. Rowling" }
+      "description": "Harry returns to Hogwarts for his second year, where he discovers a hidden chamber within the school that holds a deadly secret. With the help of his friends, he must confront the dangers lurking within.",
+      "author": {
+        "id": 1,
+        "name": "J.K. Rowling"
+      },
+      "categories": [
+        {
+          "id": 1,
+          "name": "Fantasy"
+        },
+        {
+          "id": 2,
+          "name": "Adventure"
+        }
+      ]
     },
     {
       "id": 3,
       "title": "Harry Potter and the Prisoner of Azkaban",
-      "author": { "id": 1, "name": "J.K. Rowling" }
+      "description": "In his third year at Hogwarts, Harry learns about Sirius Black, an escaped prisoner who is believed to be after him. As secrets about his past unravel, Harry discovers the truth about his family and his connection to Sirius.",
+      "author": {
+        "id": 1,
+        "name": "J.K. Rowling"
+      },
+      "categories": [
+        {
+          "id": 1,
+          "name": "Fantasy"
+        },
+        {
+          "id": 2,
+          "name": "Adventure"
+        }
+      ]
     },
     {
       "id": 4,
       "title": "A Game of Thrones",
-      "author": { "id": 2, "name": "George R.R. Martin" }
+      "description": "The first book in the epic fantasy series 'A Song of Ice and Fire,' where noble families vie for control of the Iron Throne in the Seven Kingdoms. Betrayal, intrigue, and war shape the fate of the realm.",
+      "author": {
+        "id": 2,
+        "name": "George R.R. Martin"
+      },
+      "categories": [
+        {
+          "id": 1,
+          "name": "Fantasy"
+        },
+        {
+          "id": 2,
+          "name": "Adventure"
+        }
+      ]
     },
     {
       "id": 5,
       "title": "A Clash of Kings",
-      "author": { "id": 2, "name": "George R.R. Martin" }
+      "description": "The second book in the series sees the Seven Kingdoms plunged into civil war as various factions claim the Iron Throne. Alliances are forged and broken as the struggle for power continues.",
+      "author": {
+        "id": 2,
+        "name": "George R.R. Martin"
+      },
+      "categories": [
+        {
+          "id": 1,
+          "name": "Fantasy"
+        },
+        {
+          "id": 2,
+          "name": "Adventure"
+        }
+      ]
     },
     {
       "id": 6,
       "title": "A Storm of Swords",
-      "author": { "id": 2, "name": "George R.R. Martin" }
+      "description": "The third book in the series follows the aftermath of war, with new alliances forming and old ones breaking. The stakes are higher than ever as the battle for the Iron Throne rages on.",
+      "author": {
+        "id": 2,
+        "name": "George R.R. Martin"
+      },
+      "categories": [
+        {
+          "id": 1,
+          "name": "Fantasy"
+        },
+        {
+          "id": 2,
+          "name": "Adventure"
+        }
+      ]
     },
     {
       "id": 7,
       "title": "The Fellowship of the Ring",
-      "author": { "id": 3, "name": "J.R.R. Tolkien" }
+      "description": "The first book in 'The Lord of the Rings' trilogy, where Frodo Baggins begins his journey to destroy the One Ring. Alongside a fellowship of companions, he faces the growing threat of Sauron.",
+      "author": {
+        "id": 3,
+        "name": "J.R.R. Tolkien"
+      },
+      "categories": [
+        {
+          "id": 1,
+          "name": "Fantasy"
+        },
+        {
+          "id": 2,
+          "name": "Adventure"
+        }
+      ]
     },
     {
       "id": 8,
       "title": "The Two Towers",
-      "author": { "id": 3, "name": "J.R.R. Tolkien" }
+      "description": "The second book in the trilogy follows the fellowship as they are split into different paths. Frodo and Sam continue their journey to Mordor, while others face battles and betrayals.",
+      "author": {
+        "id": 3,
+        "name": "J.R.R. Tolkien"
+      },
+      "categories": [
+        {
+          "id": 1,
+          "name": "Fantasy"
+        },
+        {
+          "id": 2,
+          "name": "Adventure"
+        }
+      ]
     },
     {
       "id": 9,
       "title": "The Return of the King",
-      "author": { "id": 3, "name": "J.R.R. Tolkien" }
+      "description": "The final book in the trilogy sees the epic conclusion of the battle against Sauron. Frodo reaches Mount Doom, and Aragorn claims his rightful place as king.",
+      "author": {
+        "id": 3,
+        "name": "J.R.R. Tolkien"
+      },
+      "categories": [
+        {
+          "id": 1,
+          "name": "Fantasy"
+        },
+        {
+          "id": 2,
+          "name": "Adventure"
+        }
+      ]
     },
     {
       "id": 10,
       "title": "Murder on the Orient Express",
-      "author": { "id": 4, "name": "Agatha Christie" }
+      "description": "Detective Hercule Poirot investigates a murder aboard the luxurious Orient Express. With every passenger a suspect, he must unravel the mystery before the killer strikes again.",
+      "author": {
+        "id": 4,
+        "name": "Agatha Christie"
+      },
+      "categories": [
+        {
+          "id": 4,
+          "name": "Mystery"
+        },
+        {
+          "id": 5,
+          "name": "Thriller"
+        }
+      ]
     },
     {
       "id": 11,
       "title": "And Then There Were None",
-      "author": { "id": 4, "name": "Agatha Christie" }
+      "description": "Ten strangers are invited to a remote island under mysterious circumstances. As they are killed one by one, they must uncover the identity of the murderer among them before it's too late.",
+      "author": {
+        "id": 4,
+        "name": "Agatha Christie"
+      },
+      "categories": [
+        {
+          "id": 4,
+          "name": "Mystery"
+        },
+        {
+          "id": 5,
+          "name": "Thriller"
+        }
+      ]
     },
     {
       "id": 12,
       "title": "The Shining",
-      "author": { "id": 5, "name": "Stephen King" }
+      "description": "Jack Torrance becomes the caretaker of the Overlook Hotel, bringing his family along for the winter. As the hotel’s dark secrets come to light, Jack descends into madness, threatening his wife and son.",
+      "author": {
+        "id": 5,
+        "name": "Stephen King"
+      },
+      "categories": [
+        {
+          "id": 3,
+          "name": "Horror"
+        },
+        {
+          "id": 5,
+          "name": "Thriller"
+        }
+      ]
     },
     {
       "id": 13,
       "title": "It",
-      "author": { "id": 5, "name": "Stephen King" }
+      "description": "A group of childhood friends reunite as adults to confront an ancient, shape-shifting evil that terrorized their hometown years ago. Together, they must face their fears to defeat the creature known as Pennywise.",
+      "author": {
+        "id": 5,
+        "name": "Stephen King"
+      },
+      "categories": [
+        {
+          "id": 3,
+          "name": "Horror"
+        },
+        {
+          "id": 5,
+          "name": "Thriller"
+        }
+      ]
     },
     {
       "id": 14,
       "title": "Misery",
-      "author": { "id": 5, "name": "Stephen King" }
+      "description": "After a car accident, author Paul Sheldon is rescued by his 'number one fan,' Annie Wilkes. However, her obsession with his work turns dangerous as she forces him to write a new novel under her control.",
+      "author": {
+        "id": 5,
+        "name": "Stephen King"
+      },
+      "categories": [
+        {
+          "id": 3,
+          "name": "Horror"
+        },
+        {
+          "id": 5,
+          "name": "Thriller"
+        }
+      ]
     }
   ]
 }

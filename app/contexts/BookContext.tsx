@@ -1,25 +1,32 @@
 import React, { ReactNode, createContext, useContext, useState } from 'react';
 
-export interface Book {
+export interface IBook {
   id: number;
   title: string;
-  author: Author;
+  description: string;
+  author: IAuthor;
+  categories: ICategory[];
 }
 
-interface Author {
+interface IAuthor {
+  id: number;
+  name: string;
+}
+
+interface ICategory {
   id: number;
   name: string;
 }
 
 interface BookContextType {
-  books: Book[];
-  setBooks: React.Dispatch<React.SetStateAction<Book[]>>;
+  books: IBook[];
+  setBooks: React.Dispatch<React.SetStateAction<IBook[]>>;
 }
 
 const BookContext = createContext<BookContextType | undefined>(undefined);
 
 export const BookProvider = ({ children }: { children: ReactNode }) => {
-  const [books, setBooks] = useState<Book[]>([]);
+  const [books, setBooks] = useState<IBook[]>([]);
 
   return (
     <BookContext.Provider value={{ books, setBooks }}>

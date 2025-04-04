@@ -2,6 +2,7 @@
 
 import {
   AuthorProvider,
+  IAuthor,
   useAuthorContext,
 } from '../../../contexts/AuthorContext';
 import BasicTable, {
@@ -28,11 +29,11 @@ const PageContent = () => {
   const actions: IAction[] = [
     {
       icon: <EditIcon />,
-      onClick: (row) => alert(`Editando ${row.name}`),
+      onClick: (row: IAuthor) => alert(`Editando ${row.name}`),
     },
     {
       icon: <DeleteIcon />,
-      onClick: (row) => alert(`Deletando ${row.name}`),
+      onClick: (row: IAuthor) => alert(`Deletando ${row.name}`),
     },
   ];
 
@@ -46,7 +47,7 @@ const PageContent = () => {
   };
 
   useEffect(() => {
-    fetchAuthors();
+    (async () => await fetchAuthors())();
   }, []);
 
   useEffect(() => {
