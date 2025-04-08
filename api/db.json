@@ -1,10 +1,9 @@
 {
   "authors": [
     {
-      "id": 1,
+      "id": "1",
       "name": "J.K. Rowling",
       "bio": "British author, best known for the Harry Potter series.",
-      "birthDate": "1965-07-31",
       "nationality": "British",
       "books": [
         {
@@ -22,10 +21,9 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "George R.R. Martin",
       "bio": "American novelist and short story writer, known for A Song of Ice and Fire.",
-      "birthDate": "1948-09-20",
       "nationality": "American",
       "books": [
         {
@@ -43,10 +41,9 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "J.R.R. Tolkien",
       "bio": "English writer, poet, and philologist, author of The Lord of the Rings.",
-      "birthDate": "1892-01-03",
       "nationality": "British",
       "books": [
         {
@@ -64,10 +61,9 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Agatha Christie",
       "bio": "English writer known for her detective novels, especially those featuring Hercule Poirot.",
-      "birthDate": "1890-09-15",
       "nationality": "British",
       "books": [
         {
@@ -81,10 +77,9 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Stephen King",
       "bio": "American author of horror, supernatural fiction, suspense, and fantasy novels.",
-      "birthDate": "1947-09-21",
       "nationality": "American",
       "books": [
         {
@@ -104,31 +99,32 @@
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Fantasy"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Adventure"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Horror"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Mystery"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Thriller"
     }
   ],
   "books": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Harry Potter and the Philosopher's Stone",
       "description": "Harry Potter, a young boy who discovers he is a wizard, begins his magical education at Hogwarts School of Witchcraft and Wizardry. Along the way, he uncovers the truth about his parents' death and faces the dark wizard Voldemort for the first time.",
+      "publishedDate": "1997-06-26",
       "author": {
         "id": 1,
         "name": "J.K. Rowling"
@@ -145,9 +141,10 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Harry Potter and the Chamber of Secrets",
       "description": "Harry returns to Hogwarts for his second year, where he discovers a hidden chamber within the school that holds a deadly secret. With the help of his friends, he must confront the dangers lurking within.",
+      "publishedDate": "1998-07-02",
       "author": {
         "id": 1,
         "name": "J.K. Rowling"
@@ -164,9 +161,10 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Harry Potter and the Prisoner of Azkaban",
       "description": "In his third year at Hogwarts, Harry learns about Sirius Black, an escaped prisoner who is believed to be after him. As secrets about his past unravel, Harry discovers the truth about his family and his connection to Sirius.",
+      "publishedDate": "1999-07-08",
       "author": {
         "id": 1,
         "name": "J.K. Rowling"
@@ -183,9 +181,10 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "A Game of Thrones",
       "description": "The first book in the epic fantasy series 'A Song of Ice and Fire,' where noble families vie for control of the Iron Throne in the Seven Kingdoms. Betrayal, intrigue, and war shape the fate of the realm.",
+      "publishedDate": "1996-08-01",
       "author": {
         "id": 2,
         "name": "George R.R. Martin"
@@ -202,9 +201,10 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "A Clash of Kings",
       "description": "The second book in the series sees the Seven Kingdoms plunged into civil war as various factions claim the Iron Throne. Alliances are forged and broken as the struggle for power continues.",
+      "publishedDate": "1998-11-16",
       "author": {
         "id": 2,
         "name": "George R.R. Martin"
@@ -221,9 +221,10 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "A Storm of Swords",
       "description": "The third book in the series follows the aftermath of war, with new alliances forming and old ones breaking. The stakes are higher than ever as the battle for the Iron Throne rages on.",
+      "publishedDate": "2000-08-08",
       "author": {
         "id": 2,
         "name": "George R.R. Martin"
@@ -240,9 +241,10 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "The Fellowship of the Ring",
       "description": "The first book in 'The Lord of the Rings' trilogy, where Frodo Baggins begins his journey to destroy the One Ring. Alongside a fellowship of companions, he faces the growing threat of Sauron.",
+      "publishedDate": "1954-07-29",
       "author": {
         "id": 3,
         "name": "J.R.R. Tolkien"
@@ -259,9 +261,10 @@
       ]
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "The Two Towers",
       "description": "The second book in the trilogy follows the fellowship as they are split into different paths. Frodo and Sam continue their journey to Mordor, while others face battles and betrayals.",
+      "publishedDate": "1954-11-11",
       "author": {
         "id": 3,
         "name": "J.R.R. Tolkien"
@@ -278,9 +281,10 @@
       ]
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "The Return of the King",
       "description": "The final book in the trilogy sees the epic conclusion of the battle against Sauron. Frodo reaches Mount Doom, and Aragorn claims his rightful place as king.",
+      "publishedDate": "1955-10-20",
       "author": {
         "id": 3,
         "name": "J.R.R. Tolkien"
@@ -297,9 +301,10 @@
       ]
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Murder on the Orient Express",
       "description": "Detective Hercule Poirot investigates a murder aboard the luxurious Orient Express. With every passenger a suspect, he must unravel the mystery before the killer strikes again.",
+      "publishedDate": "1934-01-01",
       "author": {
         "id": 4,
         "name": "Agatha Christie"
@@ -316,9 +321,10 @@
       ]
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "And Then There Were None",
       "description": "Ten strangers are invited to a remote island under mysterious circumstances. As they are killed one by one, they must uncover the identity of the murderer among them before it's too late.",
+      "publishedDate": "1939-11-06",
       "author": {
         "id": 4,
         "name": "Agatha Christie"
@@ -335,9 +341,10 @@
       ]
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "The Shining",
-      "description": "Jack Torrance becomes the caretaker of the Overlook Hotel, bringing his family along for the winter. As the hotel’s dark secrets come to light, Jack descends into madness, threatening his wife and son.",
+      "description": "Jack Torrance becomes the caretaker of the Overlook Hotel, bringing his family along for the winter. As the hotel's dark secrets come to light, Jack descends into madness, threatening his wife and son.",
+      "publishedDate": "1977-01-28",
       "author": {
         "id": 5,
         "name": "Stephen King"
@@ -354,9 +361,10 @@
       ]
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "It",
       "description": "A group of childhood friends reunite as adults to confront an ancient, shape-shifting evil that terrorized their hometown years ago. Together, they must face their fears to defeat the creature known as Pennywise.",
+      "publishedDate": "1986-09-15",
       "author": {
         "id": 5,
         "name": "Stephen King"
@@ -373,9 +381,10 @@
       ]
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Misery",
       "description": "After a car accident, author Paul Sheldon is rescued by his 'number one fan,' Annie Wilkes. However, her obsession with his work turns dangerous as she forces him to write a new novel under her control.",
+      "publishedDate": "1987-06-08",
       "author": {
         "id": 5,
         "name": "Stephen King"

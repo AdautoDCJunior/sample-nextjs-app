@@ -3,6 +3,7 @@ import React, { ReactNode, createContext, useContext, useState } from 'react';
 export interface IBook {
   id: number;
   title: string;
+  publishedDate: string;
   description: string;
   author: IAuthor;
   categories: ICategory[];

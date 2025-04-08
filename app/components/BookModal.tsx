@@ -7,7 +7,6 @@ import { IAuthor } from '../contexts/AuthorContext';
 import { IBook } from '../contexts/BookContext';
 import { ICategory } from '../contexts/CategoryContext';
 
-
 interface IBookModal extends Omit<IBasicModal, 'title' | 'fields'> {
   book: IBook | null;
 }
@@ -23,11 +22,9 @@ const Component = (props: IBookModal) => {
 
   const [bookId, setBookId] = useState<number | null>(null);
   const [bookTitle, setBookTitle] = useState('');
+  const [bookPublishedDate, setBookPublishedDate] = useState('');
   const [bookAuthor, setBookAuthor] = useState<IFieldOption | null>(null);
-  const [
-    bookCategories,
-    setBookCategories,
-  ] = useState<IFieldOption[] | null>(null);
+  const [bookCategories, setBookCategories] = useState<IFieldOption[]>([]);
   const [bookDescription, setBookDescription] = useState('');
 
   function sleep(duration: number): Promise<void> {
@@ -62,6 +59,10 @@ const Component = (props: IBookModal) => {
     } catch (error) {
       console.error('Erro ao buscar categorias:', error);
     }
+  };
+
+  const formatDateForInput = (dateString: string) => {
+    return dateString ? dateString.split('T')[0] : '';
   };
 
   const fields: IField[] = [
@@ -102,14 +103,14 @@ const Component = (props: IBookModal) => {
     },
     {
       id: 4,
-      multiline: true,
+      multiple: true,
       label: 'Categorias',
       type: 'autocomplete',
       value: bookCategories,
       onOpen: fetchCategories,
       loading: categoryLoading,
-      onChange: (value: IFieldOption) => {
-        setBookCategories([...bookCategories, value]);
+      onChange: (value: IFieldOption[]) => {
+        setBookCategories(value);
       },
       options: categories.map((category) => ({
         label: category.name,
@@ -119,6 +120,14 @@ const Component = (props: IBookModal) => {
     },
     {
       id: 5,
+      label: 'Data de Publicação',
+      type: 'date',
+      value: bookPublishedDate,
+      onChange: setBookPublishedDate,
+      grid: 12,
+    },
+    {
+      id: 6,
       label: 'Descrição',
       type: 'text',
       value: bookDescription,
@@ -133,19 +142,21 @@ const Component = (props: IBookModal) => {
     if (open && book) {
       setBookId(book.id);
       setBookTitle(book.title);
+      setBookPublishedDate(formatDateForInput(book.publishedDate));
       setBookAuthor({ label: book.author.name, value: book.author.id });
       setBookCategories(
         book.categories.map((category) => ({
           label: category.name,
           value: category.id,
-        })),
+        })) || [],
       );
       setBookDescription(book.description);
     } else {
       setBookId(null);
       setBookTitle('');
+      setBookPublishedDate('');
       setBookAuthor(null);
-      setBookCategories(null);
+      setBookCategories([]);
       setBookDescription('');
     }
   }, [open, book]);

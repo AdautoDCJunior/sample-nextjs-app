@@ -1,16 +1,17 @@
-import { Autocomplete, Grid, TextField } from '@mui/material';
-import { Checkbox, CircularProgress, ListItemText } from '@mui/material';
+import { Autocomplete, 
+  AutocompleteRenderOptionState, Grid, TextField } from '@mui/material';
+import { Checkbox, CircularProgress } from '@mui/material';
 import React from 'react';
 
 export interface IFieldOption {
   label: string;
-  value: string | number;
+  value: number;
 }
 
 export interface IField {
   id: number;
   label: string;
-  type: 'text' | 'number' | 'date' | 'autocomplete';
+  type: 'text' | 'number' | 'autocomplete' | 'date';
   value: string | number | IFieldOption | IFieldOption[] | null;
   onChange: (value: any) => void;
   options?: IFieldOption[];
@@ -32,19 +33,22 @@ export default function BasicForm(props: IBasicForm) {
 
   return (
     <Grid container spacing={1}>
-      {fields.map(field => (
+      {fields.map(field => ( 
         <Grid key={field.id} size={field.grid || 12}>
           {(field.type === 'autocomplete' && field.options)
             ? (
               <Autocomplete
-                getOptionLabel={(option: IFieldOption | IFieldOption[]) => {
-                  console.log(option);
-                  
-                  return Array.isArray(option)
-                    ? `${option.length} opções selecionadas`
-                    : option.label;
+                disableCloseOnSelect
+                getOptionLabel={(option) => (typeof 
+                option === 'object' && 'label' in option ? option.label : '')}
+                isOptionEqualToValue={(
+                  option: IFieldOption,
+                  value: IFieldOption,
+                ) => {
+                  return Number(option.value) === Number(value.value);
                 }}
                 key={field.id}
+                limitTags={1}
                 loading={field.loading || false}
                 multiple={field.multiple || false}
                 noOptionsText="Nenhuma opção"
@@ -71,32 +75,32 @@ export default function BasicForm(props: IBasicForm) {
                     }}
                   />
                 )}
-                renderOption={(props, option: IFieldOption) => {
+                renderOption={(props, option: IFieldOption, 
+                  { selected }: AutocompleteRenderOptionState) => {
                   // eslint-disable-next-line react/prop-types
-                  const { key, ...restProps } = props;
-
-                  const isSelected = (field.value as IFieldOption[]).some(
-                    (selectedOption: IFieldOption) => {
-                      if (typeof selectedOption === 'object') {
-                        return selectedOption.value === option.value;
-                      }
-                      return selectedOption === option.value;
-                    },
-                  );
-                  
+                  const { key, ...optionProps } = props;  
+                  const isSelected = field.multiple && 
+                  Array.isArray(field.value) 
+                    ? field.value.some((val: IFieldOption) => 
+                      Number(val.value) === Number(option.value))
+                    : selected;    
                   return (
-                    <li key={key} {...restProps}>
+                    <li key={key} {...optionProps}>
                       <Checkbox checked={isSelected} />
-                      <ListItemText primary={option.label} />
+                      {option.label}
                     </li>
                   );
                 }}
-                value={field.value || null}
+                value={field.value || (field.multiple ? [] : null)}
               />
             ) : (
               <TextField
+                InputLabelProps={field.type === 'date' ? 
+                  { shrink: true } : undefined}
                 disabled={field.disabled || false}
                 fullWidth
+                inputProps={field.type === 'date' ? 
+                  { max: '9999-12-31' } : undefined}
                 key={field.id}
                 label={field.label}
                 margin="normal"
@@ -104,7 +108,7 @@ export default function BasicForm(props: IBasicForm) {
                 multiline={field.multiline || false}
                 onChange={(e) => field.onChange(e.target.value)}
                 type={field.type}
-                value={field.value}
+                value={field.value === null ? '' : field.value}
               />
             )
           }

@@ -15,7 +15,6 @@ interface IBasicTable {
 
 export interface IAction {
   icon: React.ReactNode;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onClick: (params?: any) => void;
 }
 
@@ -24,7 +23,6 @@ export interface IColumn {
   name: string;
   align?: 'left' | 'right' | 'center';
 }
-
 
 export interface IRow {
   id: string | number;
