@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import React from 'react';
 import { styled } from '@mui/material/styles';
 
-export interface BasicButtonProps {
+export interface IBasicButton {
   variant: 'icon' | 'text' | 'icon-text';
   icon?: React.ReactNode;
   text?: string;
@@ -25,7 +25,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const BasicButton: React.FC<BasicButtonProps> = ({
+const BasicButton: React.FC<IBasicButton> = ({
   variant,
   icon,
   text,

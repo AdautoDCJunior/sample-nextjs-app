@@ -11,22 +11,49 @@ import {
   useBookContext,
 } from '../../../contexts/BookContext';
 import React, { useEffect, useState } from 'react';
+import BookDrawer from '../../../components/BookDrawer';
 import BookModal from '../../../components/BookModal';
 import { BookService } from '../../../services/BookService';
-import { Button } from '@mui/material';
+import ClearALLFilterIcon from '@mui/icons-material/FilterListOff';
+import CreateIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import { IBasicButton } from '../../../components/BasicButton';
+import PageTitle from '../../../components/PageTitle';
 
 const PageContent = () => {
   const { books, setBooks } = useBookContext();
   const [bookRows, setBookRows] = useState<IRow[]>([]);
   const [bookSelected, setBookSelected] = useState<IBook | null>(null);
   const [openModal, setOpenModal] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   const bookColumns: IColumn[] = [
     { id: 1, name: 'id',align: 'left' },
     { id: 2, name: 'title', align: 'left' },
     { id: 3, name: 'description', align: 'left' },
+  ];
+
+  const buttons: IBasicButton[] = [
+    {
+      variant: 'icon',
+      icon: <CreateIcon />,
+      onClick: () => setOpenModal(true),
+      size: 'small',
+    },
+    {
+      variant: 'icon',
+      icon: <FilterListIcon />,
+      onClick: () => setOpenDrawer(true),
+      size: 'small',
+    },
+    {
+      variant: 'icon',
+      icon: <ClearALLFilterIcon  />,
+      onClick: () => console.log('click'),
+      size: 'small',
+    },
   ];
 
   const handleEdit = (book: IBook) => {
@@ -87,14 +114,21 @@ const PageContent = () => {
 
   return (
     <div>
-      <h1>Lista de Livros</h1>
-      <Button onClick={() => setOpenModal(true)}>Create</Button>
+      <PageTitle 
+        buttons={buttons}  
+        title={'Lista de livros'}
+      />
       <BasicTable actions={actions} columns={bookColumns} rows={bookRows} />
       <BookModal
         book={bookSelected}
         onCancel={handleCancel}
         onSave={handleSave}
         open={openModal}
+      />
+      <BookDrawer
+        onClose={() => setOpenDrawer(false)}
+        onFilter={() => console.log('filter')}
+        open={openDrawer}
       />
     </div>
   );

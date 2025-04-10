@@ -10,10 +10,16 @@ import BasicTable, {
   IColumn,
   IRow,
 } from '../../../components/BasicTable';
+
 import React, { useEffect, useState } from 'react';
 import { AuthorService } from '../../../services/AuthorService';
+import ClearALLFilterIcon from '@mui/icons-material/FilterListOff';
+import CreateIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import { IBasicButton } from '../../../components/BasicButton';
+import PageTitle from '../../../components/PageTitle';
 
 const PageContent = () => {
   const { authors, setAuthors } = useAuthorContext();
@@ -24,6 +30,27 @@ const PageContent = () => {
     { id: 2, name: 'bio', align: 'left' },
     { id: 3, name: 'birthDate', align: 'left' },
     { id: 4, name: 'nationality', align: 'left' },
+  ];
+
+  const buttons: IBasicButton[] = [
+    {
+      variant: 'icon',
+      icon: <CreateIcon />,
+      onClick: () => console.log('click'),
+      size: 'small',
+    },
+    {
+      variant: 'icon',
+      icon: <FilterListIcon />,
+      onClick: () => console.log('click'),
+      size: 'small',
+    },
+    {
+      variant: 'icon',
+      icon: <ClearALLFilterIcon  />,
+      onClick: () => console.log('click'),
+      size: 'small',
+    },
   ];
 
   const actions: IAction[] = [
@@ -58,7 +85,10 @@ const PageContent = () => {
 
   return (
     <div>
-      <h1>Lista de Autores</h1>
+      <PageTitle
+        buttons={buttons}  
+        title={'Lista de Autores'}
+      />
       <BasicTable actions={actions} columns={authorColumns} rows={authorRows} />
     </div>
   );
