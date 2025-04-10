@@ -1,6 +1,6 @@
 import React, { ReactNode, createContext, useState } from 'react';
 
-export interface Author {
+export interface IAuthor {
   id: number,
   name: string,
   bio: string,
@@ -15,14 +15,14 @@ interface Book {
 }
 
 interface AuthorContextType {
-  authors: Author[];
-  setAuthors: React.Dispatch<React.SetStateAction<Author[]>>;
+  authors: IAuthor[];
+  setAuthors: React.Dispatch<React.SetStateAction<IAuthor[]>>;
 }
 
 const AuthorContext = createContext<AuthorContextType | undefined>(undefined);
 
 export const AuthorProvider = ({ children }: { children: ReactNode }) => {
-  const [authors, setAuthors] = useState<Author[]>([]);
+  const [authors, setAuthors] = useState<IAuthor[]>([]);
   
   return (
     <AuthorContext.Provider value={{ authors, setAuthors }}>

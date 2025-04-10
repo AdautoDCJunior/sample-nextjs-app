@@ -1,62 +1,68 @@
 'use client';
 
-import { Add, FilterAltOff } from '@mui/icons-material';
-import BasicTable, { IColumn, IRow } from '../../../components/BasicTable';
-import { BookProvider, useBookContext } from '../../../contexts/BookContext';
+import BasicTable, {
+  IAction,
+  IColumn,
+  IRow,
+} from '../../../components/BasicTable';
+import {
+  BookProvider,
+  IBook,
+  useBookContext,
+} from '../../../contexts/BookContext';
 import React, { useEffect, useState } from 'react';
+import BookModal from '../../../components/BookModal';
 import { BookService } from '../../../services/BookService';
-import PageTitle from '../../../components/PageTitle';
+import { Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
-const handleButtonClick = () => {
-  alert('Abrindo Filtro');
-};
-
-const handleIcon1Click = () => {
-  alert('Limpando Filtro');
-};
-
-const handleIcon2Click = () => {
-  alert('Criando Livro');
-};
-
-const arrayButtons: Array<{
-  variant: 'icon' | 'text' | 'icon-text';
-  icon?: React.ReactNode;
-  text?: string;
-  onClick: () => void;
-  color: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
-  size: 'small' | 'medium' | 'large';
-}> = [
-  {
-    variant: 'icon',
-    icon: <FilterAltOff />,
-    onClick: (handleIcon1Click),
-    color: 'primary',
-    size: 'small',
-  },
-  {
-    variant: 'icon',
-    icon: <Add />,
-    onClick: (handleIcon2Click),
-    color: 'primary',
-    size: 'small',
-  },
-  {
-    variant: 'text',
-    text: 'Filtros',
-    onClick: (handleButtonClick),
-    color: 'primary',
-    size: 'large',
-  },
-];
-
-const PageContent = ({ buttons }: { buttons: typeof arrayButtons }) => {
+const PageContent = () => {
   const { books, setBooks } = useBookContext();
   const [bookRows, setBookRows] = useState<IRow[]>([]);
+  const [bookSelected, setBookSelected] = useState<IBook | null>(null);
+  const [openModal, setOpenModal] = useState(false);
 
   const bookColumns: IColumn[] = [
-    { id: 1, name: 'id', align: 'left' },
+    { id: 1, name: 'id',align: 'left' },
     { id: 2, name: 'title', align: 'left' },
+    { id: 3, name: 'description', align: 'left' },
+  ];
+
+  const handleEdit = (book: IBook) => {
+    setBookSelected(book);
+    setOpenModal(true);
+  };
+
+  const handleSave = async () => {
+    try {
+      if (bookSelected) {
+        await BookService.updateBook(bookSelected.id, bookSelected);
+      } else {
+        await BookService.createBook(bookSelected);
+      }
+
+      setBookSelected(null);
+      setOpenModal(false);
+    } catch (error) {
+      console.log('Erro ao salvar livro:', error);
+    }
+  };
+
+  const handleCancel = () => {
+    setOpenModal(false);
+    setBookSelected(null);
+  };
+
+  const actions: IAction[] = [
+    {
+      icon: <EditIcon />,
+      onClick: (row) => handleEdit(row),
+    },
+    {
+      icon: <DeleteIcon />,
+      onClick: (row: IBook) => alert(`Deletando ${row.title}`),
+    },
   ];
 
   const fetchBooks = async () => {
@@ -81,11 +87,15 @@ const PageContent = ({ buttons }: { buttons: typeof arrayButtons }) => {
 
   return (
     <div>
-      <PageTitle 
-        buttons={buttons} 
-        title="Livros"
+      <h1>Lista de Livros</h1>
+      <Button onClick={() => setOpenModal(true)}>Create</Button>
+      <BasicTable actions={actions} columns={bookColumns} rows={bookRows} />
+      <BookModal
+        book={bookSelected}
+        onCancel={handleCancel}
+        onSave={handleSave}
+        open={openModal}
       />
-      <BasicTable columns={bookColumns} rows={bookRows} />
     </div>
   );
 };
@@ -93,7 +103,7 @@ const PageContent = ({ buttons }: { buttons: typeof arrayButtons }) => {
 export default function Page() {
   return (
     <BookProvider>
-      <PageContent buttons={arrayButtons} />
+      <PageContent />
     </BookProvider>
   );
 }

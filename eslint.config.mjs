@@ -31,8 +31,9 @@ export default defineConfig([
       '@stylistic/max-len': ['error', { code: 80 }],
       '@stylistic/quotes': ['error', 'single'],
       '@stylistic/semi': 'error',
-      'sort-imports': 'error',
       '@stylistic/jsx-sort-props': 'error',
+      '@typescript-eslint/no-explicit-any': 'off',
+      'sort-imports': 'error',
     },
   },
 ]);

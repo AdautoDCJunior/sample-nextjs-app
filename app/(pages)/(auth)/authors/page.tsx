@@ -1,8 +1,8 @@
 'use client';
 
-import { Add, FilterAlt, FilterAltOff, RestartAlt } from '@mui/icons-material';
 import {
   AuthorProvider,
+  IAuthor,
   useAuthorContext,
 } from '../../../contexts/AuthorContext';
 import BasicTable, {
@@ -12,57 +12,12 @@ import BasicTable, {
 } from '../../../components/BasicTable';
 import React, { useEffect, useState } from 'react';
 import { AuthorService } from '../../../services/AuthorService';
-import { BasicButtonProps } from '../../../components/BasicButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import PageTitle from '../../../components/PageTitle';
 
 const PageContent = () => {
   const { authors, setAuthors } = useAuthorContext();
   const [authorRows, setAuthorRows] = useState<IRow[]>([]);
-
-  const handleButtonClick = () => {
-    alert('Abrindo Filtro');
-  };
-  
-  const handleIcon1Click = () => {
-    alert('Limpando Filtro');
-  };
-  
-  const handleIcon2Click = () => {
-    alert('Criando Autor');
-  };
-
-  const buttons: BasicButtonProps[] = [
-    {
-      variant: 'icon',
-      icon: <Add />,
-      onClick: (handleIcon2Click),
-      color: 'primary',
-      size: 'small',
-    },
-    {
-      variant: 'icon',
-      icon: <RestartAlt />,
-      onClick: () => alert('Atualizar dados'),
-      color: 'primary',
-      size: 'small',
-    },
-    {
-      variant: 'icon',
-      icon: <FilterAlt />,
-      onClick: (handleButtonClick),
-      color: 'primary',
-      size: 'large',
-    },
-    {
-      variant: 'icon',
-      icon: <FilterAltOff />,
-      onClick: (handleIcon1Click),
-      color: 'primary',
-      size: 'small',
-    },
-  ];
 
   const authorColumns: IColumn[] = [
     { id: 1, name: 'name',align: 'left' },
@@ -74,11 +29,11 @@ const PageContent = () => {
   const actions: IAction[] = [
     {
       icon: <EditIcon />,
-      onClick: (row) => alert(`Editando ${row.name}`),
+      onClick: (row: IAuthor) => alert(`Editando ${row.name}`),
     },
     {
       icon: <DeleteIcon />,
-      onClick: (row) => alert(`Deletando ${row.name}`),
+      onClick: (row: IAuthor) => alert(`Deletando ${row.name}`),
     },
   ];
 
@@ -92,7 +47,7 @@ const PageContent = () => {
   };
 
   useEffect(() => {
-    fetchAuthors();
+    (async () => await fetchAuthors())();
   }, []);
 
   useEffect(() => {
@@ -103,10 +58,7 @@ const PageContent = () => {
 
   return (
     <div>
-      <PageTitle 
-        buttons={buttons} 
-        title="Autores"
-      />
+      <h1>Lista de Autores</h1>
       <BasicTable actions={actions} columns={authorColumns} rows={authorRows} />
     </div>
   );

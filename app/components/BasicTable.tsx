@@ -16,7 +16,6 @@ interface IBasicTable {
 export interface IAction {
   icon?: React.ReactNode;
   text?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onClick: (params?: any) => void;
   color?: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
   size?: 'small' | 'medium' | 'large';
